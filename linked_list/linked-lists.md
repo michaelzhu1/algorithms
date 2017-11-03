@@ -17,10 +17,11 @@ I guess singly linked list does not have access to the tail, only the head
 class Node
   def initialize(data)
     @data = data
+    @next = nil
   end
 
   def append(data)
-    
+
   end
 end
 ```
