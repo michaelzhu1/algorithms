@@ -19,8 +19,26 @@ class Node
     @data = data
     @next = nil
   end
+end
 
-  def append(data)
+class LinkedList
+  def initialize
+
+  end
+
+  def head
+
+  end
+
+  def tail
+
+  end
+
+  def empty?
+
+  end
+
+  def append(key, val)
 
   end
 end
