@@ -41,6 +41,8 @@ class LinkedList
   def append(key, val)
 
   end
+
+  
 end
 ```
 
