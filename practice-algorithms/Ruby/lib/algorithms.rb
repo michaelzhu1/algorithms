@@ -41,7 +41,9 @@ def common_substrings(string_one, string_two)
   start_index = 0
   while start_index < string_one
     len = longest_substring.length + 1
-    
+    while start_index + len < string_one.length
+      
+    end
   end
 
 end
