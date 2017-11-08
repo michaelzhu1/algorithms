@@ -57,7 +57,9 @@ end
 # Write a function that takes n, the length of the sequence.
 # Return the first n elements from the fibonnacci sequence as an array.
 def fibs(n)
-
+  return [0] if n == 1
+  return [0, 1] if n == 2
+  fibs(n-1) << fibs(n-2).last + fibs(n-1).last
 end
 
 # Write a function that takes a string.
