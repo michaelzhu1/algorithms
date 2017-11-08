@@ -4,7 +4,15 @@
 # The result is called a 'digital root'.
 # Do not use string conversion within your method.
 def digital_root(number)
-
+  if number > 10
+    sum = 0
+    until number == 0
+      sum += number % 10
+      number = number / 10
+    end
+    return digital_root(sum)
+  end
+  return number
 end
 
 # Write a function that takes a message and an increment amount.
