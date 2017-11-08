@@ -37,13 +37,21 @@ end
 # Write a function that takes two strings.
 # Return the longest common substring.
 def common_substrings(string_one, string_two)
-
+  result = []
+  string_one.each_char do |char|
+    string_two.each_char do |char2|
+      if char == char2
+        result += char
+      end
+    end
+  end
 end
 
 # Write a function that takes an array of integers and returns their sum.
 # Use recursion.
 def sum_rec(numbers)
-
+  return numbers.first if numbers.length == 1
+  numbers.first + sum_rec(numbers.drop(1))
 end
 
 # Write a function that takes n, the length of the sequence.
