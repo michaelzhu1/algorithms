@@ -12,7 +12,18 @@ end
 # Assume lowercase and no punctuation.
 # Preserve spaces.
 def caesar_cipher(string, shift)
-
+  alphabet = ('a'..'z').to_a
+  result = ''
+  string.each_char do |char|
+    if char == ' '
+      result += ' '
+      next
+    end
+    old_index = alphabet.index(char)
+    old_index += shift
+    result += alphabet[old_index % 26]
+  end
+  return result
 end
 
 # Write a function that takes two strings.
@@ -277,5 +288,5 @@ end
 
 # Write a method that takes an array and returns all its permutations.
 def permutations(array)
-  
+
 end
