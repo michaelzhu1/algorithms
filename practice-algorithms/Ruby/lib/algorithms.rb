@@ -66,7 +66,9 @@ end
 # Return true if the string is a palindrome, otherwise return false.
 # It should take less time and memory than reversing the string.
 def is_palindrome?(string)
-
+  longest_substring = ''
+  start_index = 0
+  
 end
 
 # Write a method that takes a string as input.
