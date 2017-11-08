@@ -37,14 +37,13 @@ end
 # Write a function that takes two strings.
 # Return the longest common substring.
 def common_substrings(string_one, string_two)
-  result = []
-  string_one.each_char do |char|
-    string_two.each_char do |char2|
-      if char == char2
-        result += char
-      end
-    end
+  longest_substring = ''
+  start_index = 0
+  while start_index < string_one
+    len = longest_substring.length + 1
+    
   end
+
 end
 
 # Write a function that takes an array of integers and returns their sum.
@@ -66,9 +65,7 @@ end
 # Return true if the string is a palindrome, otherwise return false.
 # It should take less time and memory than reversing the string.
 def is_palindrome?(string)
-  longest_substring = ''
-  start_index = 0
-  
+
 end
 
 # Write a method that takes a string as input.
