@@ -73,7 +73,9 @@ end
 # It should return true if the input is a valid IPv4 address.
 # Valid IPs are anything between '0.0.0.0' and '255.255.255.255'.
 def valid_ip?(string)
-
+  ip = string.split('.')
+  return false if ip.length != 4
+  ip.all? {|num| num.to_i.between?(0,255)}
 end
 
 # Implement the Folding Cipher.
