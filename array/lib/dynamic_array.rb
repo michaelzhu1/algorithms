@@ -45,7 +45,7 @@ class DynamicArray
     value = @store[0]
     index = 0
     while index < @length
-      @store[index] = old_store[index + 1]
+      @store[index] = @store[index + 1]
       index += 1
     end
     @length -= 1
@@ -59,12 +59,12 @@ class DynamicArray
       resize!
     end
     @length += 1
-    @store[0] = val
-    index = 0
-    while index < @length
-      @store[index + 1] = @store[index]
-      index += 1
+    index = @length - 1
+    while index > 0
+      @store[index] = @store[index - 1]
+      index -= 1
     end
+    @store[0] = val
   end
 
   protected
