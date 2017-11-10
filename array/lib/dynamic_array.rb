@@ -17,6 +17,7 @@ class DynamicArray
 
   # O(1)
   def []=(index, value)
+    check_index(index)
     @store[index] = value
   end
 
@@ -24,7 +25,6 @@ class DynamicArray
   def pop
     raise "index out of bounds" if @length == 0
     @length -= 1
-
   end
 
   # O(1) ammortized; O(n) worst case. Variable because of the possible
@@ -54,10 +54,10 @@ class DynamicArray
 
   # O(n): has to shift over all the elements.
   def unshift(val)
-    @length += 1
     if @length >= @capacity
       resize!
     end
+    @length += 1
     old_store = @store
     @store[0] = val
     index = 1
