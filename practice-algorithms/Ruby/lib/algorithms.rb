@@ -42,7 +42,7 @@ def common_substrings(string_one, string_two)
   while start_index < string_one
     len = longest_substring.length + 1
     while start_index + len < string_one.length
-      
+
     end
   end
 
@@ -88,7 +88,17 @@ end
 
 # Write a method that finds all the unique substrings for a word.
 def uniq_subs(string)
-
+  result = []
+  i = 0
+  while i < string.length
+    j = i
+    while j < string.length
+      result.push(string[i..j])
+      j += 1
+    end
+    i += 1
+  end
+  result.uniq
 end
 
 # Given an array of integers find the largest contiguous subsum.

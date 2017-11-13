@@ -52,7 +52,9 @@ class RingBuffer
   # O(1) ammortized
   def unshift(val)
     @length += 1
-    @start_idx -= 1
+    resize! if @length == @capacity
+    @store[0] = val
+    @start_idx = (@start_idx - 1) % @capacity
   end
 
   protected
@@ -66,6 +68,17 @@ class RingBuffer
   end
 
   def resize!
-    @capacity = @capacity * 2
+    # @capacity = @capacity * 2
+    # old_store = @store
+    # @store = StaticArray.new(@capacity)
+    # @length.times { |i| @store[i] = old_store[i] if old_store[i]}
+    # @start_idx = 0
+    new_capacity = capacity * 2
+    new_store = StaticArray.new(new_capacity)
+    length.times { |i| new_store[i] = self[i] }
+
+    self.capacity = new_capacity
+    self.store = new_store
+    self.start_idx = 0
   end
 end
