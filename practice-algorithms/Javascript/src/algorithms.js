@@ -39,8 +39,13 @@ Algorithms.commonSubstrings = function (stringOne, stringTwo) {
 // Write a function that takes an array of integers and returns their sum.
 // Use recursion.
 Algorithms.sumRec = function (numbers) {
-
+  if (numbers.length === 1) {
+    return numbers[0];
+  }
+  return numbers[numbers.length - 1] + Algorithms.sumRec(numbers.slice(0,numbers.length -1))
 };
+
+console.log(Algorithms.sumRec([1,2,3]));
 
 // Write a function which returns the first n elements from the fibonnacci sequence, given n.
 Algorithms.fibs = function (number) {
@@ -50,12 +55,12 @@ Algorithms.fibs = function (number) {
   let prev  = Algorithms.fibs(number - 1);
   let prev_prev = Algorithms.fibs(number - 2);
   prev.push(prev[prev.length - 1] + prev_prev[prev_prev.length - 1]);
-  return prev;
+  return prev; // Always remember to explicitly return the result
 };
 
-console.log(Algorithms.fibs(1));
-console.log(Algorithms.fibs(2));
-console.log(Algorithms.fibs(3));
+// console.log(Algorithms.fibs(1));
+// console.log(Algorithms.fibs(2));
+// console.log(Algorithms.fibs(3));
 
 // Write a function that takes a string and returns true if it's a palindrome, false if it's not.
 // Your solution should take less time and memory than rebuilding the string backward and comparing the two.
