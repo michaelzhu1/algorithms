@@ -24,7 +24,11 @@ Algorithms.digitalRoot = function (number) {
 // Assume lowercase and no punctuation.
 // Preserve spaces.
 Algorithms.caesarCipher = function (string, shift) {
-  const stringArray = string.split("");
+  // const stringArray = string.split("");
+  //
+  // stringArray.map(char => {
+  //
+  // })
 };
 
 // Write a function that takes two strings and returns the lenght of the longest common substring.
@@ -46,7 +50,13 @@ Algorithms.fibs = function (number) {
 // Write a function that takes a string and returns true if it's a palindrome, false if it's not.
 // Your solution should take less time and memory than rebuilding the string backward and comparing the two.
 Algorithms.isPalindrome = function (string) {
-
+  const length = string.length;
+  for (let i = 0; i < length/2; i++) {
+    if (string[i] !== string[length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
 };
 
 // Implement the Folding Cipher.
