@@ -67,7 +67,16 @@ end
 # Return true if the string is a palindrome, otherwise return false.
 # It should take less time and memory than reversing the string.
 def is_palindrome?(string)
-
+  back_index = string.length - 1
+  mid_point = string.length / 2
+  i = 0
+  while i < mid_point
+    if string[i] != string[back_index - i]
+      return false
+    end
+    i += 1
+  end
+  return true 
 end
 
 # Write a method that takes a string as input.
@@ -130,7 +139,7 @@ def pair_sum(array, k)
     end
     seen.add(num)
   end
-  pairs 
+  pairs
 end
 
 # Take a matrix of integers and coordinates.
