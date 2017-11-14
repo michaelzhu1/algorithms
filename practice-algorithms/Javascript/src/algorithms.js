@@ -24,7 +24,7 @@ Algorithms.digitalRoot = function (number) {
 // Assume lowercase and no punctuation.
 // Preserve spaces.
 Algorithms.caesarCipher = function (string, shift) {
-
+  const stringArray = string.split("");
 };
 
 // Write a function that takes two strings and returns the lenght of the longest common substring.
