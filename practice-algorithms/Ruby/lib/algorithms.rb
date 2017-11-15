@@ -133,10 +133,16 @@ end
 # A silly year's first two digits plus the last two digits equal the middle two.
 def silly_years(year)
   result = []
+  until result.length == 10
+    if is_silly_year?(year)
+      result.push(year)
+    end
+  end
 end
 
 def is_silly_year?(year)
-  
+  str_year = year.to_s
+  year[0..1].to_i+year[2..3].to_i == year[1..2].to_i
 end
 
 # Take an array of integers, and integer k.
