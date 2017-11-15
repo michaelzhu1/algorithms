@@ -125,14 +125,14 @@ def lcs(array)
       current_sum = 0
     end
   end
-  return max 
+  return max
 end
 
 # Write a function that takes a year as a four digit integer.
 # Returns an array of the 10 closest subsequent silly years.
 # A silly year's first two digits plus the last two digits equal the middle two.
 def silly_years(year)
-
+  result = []
 end
 
 # Take an array of integers, and integer k.
