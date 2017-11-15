@@ -76,7 +76,7 @@ def is_palindrome?(string)
     end
     i += 1
   end
-  return true 
+  return true
 end
 
 # Write a method that takes a string as input.
@@ -121,7 +121,7 @@ end
 # Returns an array of the 10 closest subsequent silly years.
 # A silly year's first two digits plus the last two digits equal the middle two.
 def silly_years(year)
-
+  
 end
 
 # Take an array of integers, and integer k.
