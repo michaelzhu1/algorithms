@@ -92,8 +92,17 @@ end
 # It folds the alphabet in half and uses the adjacent letter.
 # a -> z, b -> y, c -> x, m -> n, etc...
 def folding_cipher(string)
-
+  alphabet = ('a'..'z').to_a
+  folding_hash = {}
+  alphabet.each_with_index do |char, index|
+    folding_hash[char] = alphabet[25 - index]
+  end
+  new_string = string.split("").map do |char|
+    folding_hash[char]
+  end
+  return new_string.join('')
 end
+# puts folding_cipher('test')
 
 # Write a method that finds all the unique substrings for a word.
 def uniq_subs(string)
