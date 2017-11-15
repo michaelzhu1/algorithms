@@ -118,10 +118,14 @@ def lcs(array)
   current_sum = 0
   array.each do |num|
     current_sum += num
-    if current_sum > max 
-
+    if current_sum > max
+      max = current_sum
+    end
+    if current_sum < 0
+      current_sum = 0
     end
   end
+  return max 
 end
 
 # Write a function that takes a year as a four digit integer.
