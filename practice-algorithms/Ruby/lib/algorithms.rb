@@ -135,6 +135,10 @@ def silly_years(year)
   result = []
 end
 
+def is_silly_year?(year)
+  
+end
+
 # Take an array of integers, and integer k.
 # Return all pairs that sum to k exactly.
 # List the pairs in [min, max] order.
