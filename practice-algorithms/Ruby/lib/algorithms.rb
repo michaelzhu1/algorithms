@@ -232,7 +232,17 @@ end
 
 # Write a function that takes an array and returns all of its subsets.
 def subsets(array)
-
+  return [[]] if array.empty? #set up the base case to return an array of empty array
+  first_val = array[0] #grab the first value to later concat it to prev_subsets
+  prev_subsets = subsets(array[1..-1]) #get all the subsets without the first value
+  new_sub = prev_subsets.map{|sub| sub + [first_val]} #map the first value to each element in the
+  #previous subset, there is major difference between concat and + in array:
+  #concat: modify the array that's being concated. ex: a = [1,2], b = [3,4]
+  # a.concat(b) a => [1,2,3,4]
+  # a + b a => [1,2]
+  # a.concat(b) is the same as a = a + b
+  prev_subsets + new_sub #concat the previous subsets to the new_sub
+  #to get all the subsets with and with out this first value
 end
 
 # Return the indices of the start/end of the longest palindrome in the string.
