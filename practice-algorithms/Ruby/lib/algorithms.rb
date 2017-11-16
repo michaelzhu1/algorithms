@@ -1,3 +1,4 @@
+require 'byebug'
 # Write a method that will sum the digits of a positive integer.
 # If it is greater than or equal to 10, sum the digits of the resulting number.
 # Keep repeating until there is only one digit in the result.
@@ -188,11 +189,25 @@ end
 # Implement Merge Sort
 # Hint: This typically involves a helper function.
 def merge_sort(array)
-
+  return array if array.length <= 1
+  mid = array.length / 2
+  left = merge_sort(array.take(mid))
+  right = merge_sort(array.drop(mid))
+  merge(left, right)
 end
 
 def merge(left, right)
-
+  merged = []
+  until left.empty? || right.empty?
+    if left[0] <= right[0]
+      merged << left.shift
+    else
+      merged << right.shift
+    end
+  end
+  merged.concat(left)
+  merged.concat(right)
+  merged
 end
 
 # Implement binary search.
