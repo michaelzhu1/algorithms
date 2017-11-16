@@ -331,7 +331,7 @@ def look_and_say(array)
     end
   end
   result << [current_counter, current_num]
-  result 
+  result
 end
 
 # I give you a scrambled list of n unique integers between 0 and n.
@@ -403,16 +403,34 @@ end
 
 # Write a function that takes an integer and returns it in binary form.
 def binary(integer)
-
+  return '0' if integer <= 0
+  result = ''
+  until integer == 0
+    digit = integer % 2
+    # byebug
+    result = digit.to_s + result
+    integer = integer / 2
+  end
+  result
 end
+p '----------------------------------'
+puts binary(8)
+puts binary(16)
+puts binary(32)
+puts binary(31)
+p '----------------------------------'
 
 # Write a recursive function that takes a number and returns its factorial.
 def recursive_factorial(number)
-
+  return 1 if number <= 0
+  return number if number <= 2
+  number * recursive_factorial(number - 1)
 end
 
 # Write an iterative function that takes a number and returns its factorial.
 def iterative_factorial(number)
+  sum = 1
+  number.downto(1) {|num| sum*=num}
 
 end
 
