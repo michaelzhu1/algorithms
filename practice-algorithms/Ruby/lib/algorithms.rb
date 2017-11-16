@@ -231,7 +231,7 @@ def productify(array)
 end
 
 # Write a function that takes an array and returns all of its subsets.
-def subsets(array)
+def subsets(array) # O(2^n)
   return [[]] if array.empty? #set up the base case to return an array of empty array
   first_val = array[0] #grab the first value to later concat it to prev_subsets
   prev_subsets = subsets(array[1..-1]) #get all the subsets without the first value
@@ -317,7 +317,21 @@ end
 # The output describes the count of the elements in the input.
 
 def look_and_say(array)
-
+  current_counter = 1
+  result = []
+  new_array = array[1..-1] || []
+  current_num = array[0]
+  new_array.each do |num|
+    if current_num == num
+      current_counter += 1
+    else
+      result << [current_counter, current_num]
+      current_num = num
+      current_counter = 1
+    end
+  end
+  result << [current_counter, current_num]
+  result 
 end
 
 # I give you a scrambled list of n unique integers between 0 and n.
