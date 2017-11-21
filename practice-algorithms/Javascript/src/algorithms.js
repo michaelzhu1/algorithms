@@ -83,12 +83,12 @@ Algorithms.foldingCipher = function (string) {
 
 // Write a method that finds all the unique substrings for a word.
 Algorithms.uniqSubs = function (string) {
-  const result = [];
-  for (let i = 0; i < string.length; i++) {
-    for (let j = i; j < string.length; i++) {
-      result.push(string.substring(i,j));
-    }
-  }
+  // const result = [];
+  // for (let i = 0; i < string.length; i++) {
+  //   for (let j = i; j < string.length; i++) {
+  //     result.push(string.substring(i,j));
+  //   }
+  // }
 
 };
 
@@ -104,7 +104,17 @@ Algorithms.lcs = function (array) {
 // the first two digits summed with the last two digits are equal to the middle two digits.
 Algorithms.sillyYears = function (number) {
   const result = [];
-  
+  while (result.length < 10) {
+    number ++;
+    let firstTwoDigits = Math.floor(number / 100);
+    let lastTwoDigits = number % 100;
+    let middleTwoDigits = Math.floor(number / 10) % 100;
+    if (firstTwoDigits + lastTwoDigits === middleTwoDigits) {
+      result.push(number);
+    }
+  }
+  return result;
+
 };
 
 // Given an array of integers, return all pairs that sum up to a specified value k.
