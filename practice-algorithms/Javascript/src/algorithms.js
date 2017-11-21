@@ -83,7 +83,13 @@ Algorithms.foldingCipher = function (string) {
 
 // Write a method that finds all the unique substrings for a word.
 Algorithms.uniqSubs = function (string) {
-
+  const result = [];
+  for (let i = 0; i < string.length; i++) {
+    for (let j = i; j < string.length; i++) {
+      result.push(string.substring(i,j));
+    }
+  }
+  
 };
 
 
