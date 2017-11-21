@@ -89,7 +89,7 @@ Algorithms.uniqSubs = function (string) {
       result.push(string.substring(i,j));
     }
   }
-  
+
 };
 
 
@@ -103,7 +103,8 @@ Algorithms.lcs = function (array) {
 // Write a function that takes a year (four digit integer) and returns an array with the 10 closest subsequent years that meet the following condition:
 // the first two digits summed with the last two digits are equal to the middle two digits.
 Algorithms.sillyYears = function (number) {
-
+  const result = [];
+  
 };
 
 // Given an array of integers, return all pairs that sum up to a specified value k.
