@@ -16,6 +16,9 @@ function maxChar(str) {
       count[char] += 1;
     }
   });
+
+  // remember Object.keys(ob) get the keys of the obejct in an array
+  // format and Object.values(obj) return the values in an array format
   Object.keys(count).forEach((key) => {
     if (count[key] > max) {
       max = count[key];
@@ -25,4 +28,5 @@ function maxChar(str) {
   return maxCharacter;
 }
 
+// this problem O(2n) time which is O(n) time essentially 
 module.exports = maxChar;
