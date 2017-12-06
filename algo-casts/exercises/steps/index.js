@@ -17,6 +17,22 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  for (let i = 1; i <= n; i++) {
+    const stair = Array(i).fill('#');
+    const invisible = Array(n - i).fill(' ');
+    console.log(stair.join('') + invisible.join(''));
+  }
+}
 
 module.exports = steps;
+
+
+// my initial solution 
+// function steps(n) {
+//   for (let i = 1; i <= n; i++) {
+//     const stair = Array(i).fill('#');
+//     const invisible = Array(n - i).fill(' ');
+//     console.log(stair.join('') + invisible.join(''));
+//   }
+// }
