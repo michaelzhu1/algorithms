@@ -8,6 +8,71 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  const hashA = {};
+  stringA.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
+    if (!hashA[char]) {
+      hashA[char] = 1;
+    } else {
+      hashA[char] += 1;
+    }
+  });
+  stringB.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
+    if (!hashA[char]) {
+      hashA[char] = 123123;
+    } else {
+      hashA[char] -= 1;
+    }
+  });
+  const sum = Object.values(hashA).reduce((total, currentValue) => {
+    return total + currentValue;
+  });
+  return sum === 0;
+}
+// my second attempt working solution 
+// function anagrams(stringA, stringB) {
+//   const hashA = {};
+//   stringA.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
+//     if (!hashA[char]) {
+//       hashA[char] = 1;
+//     } else {
+//       hashA[char] += 1;
+//     }
+//   });
+//   stringB.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
+//     if (!hashA[char]) {
+//       hashA[char] = 123123;
+//     } else {
+//       hashA[char] -= 1;
+//     }
+//   });
+//   const sum = Object.values(hashA).reduce((total, currentValue) => {
+//     return total + currentValue;
+//   });
+//   return sum === 0;
+// }
+// initial unsuccessful attempt because of regexp
+// function anagrams(stringA, stringB) {
+//   const hashA = {};
+//   stringA.split("").forEach(char => {
+//     if (!hashA[char.toLowerCase()] && char !== " ") {
+//       hashA[char.toLowerCase()] = 1;
+//     } else if (char !== " ") {
+//       hashA[char.toLowerCase()] += 1;
+//     }
+//   });
+//   stringB.split("").forEach(char => {
+//     if (hashA[char.toLowerCase()] === undefined && char !== " ") {
+//       return false;
+//     } else if (char !== " ") {
+//       hashA[char.toLowerCase()] -= 1;
+//     }
+//   });
+//   const sum = Object.values(hashA).reduce((total, currentValue) => {
+//     return total + currentValue;
+//   });
+//   return sum === 0;
+// }
+
 
 module.exports = anagrams;
