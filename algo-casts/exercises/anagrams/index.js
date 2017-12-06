@@ -8,28 +8,20 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+
+/* ONE IMPORTANT THING: in JavaScript, only string comparison is available.
+  'haha' === 'haha' returns true, however, [1,2] === [1,2] return false as well
+  as {1:'hi'} === {1:'hi'} return false. In Ruby however, all of above
+  would return true.
+*/
 function anagrams(stringA, stringB) {
-  const hashA = {};
-  stringA.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
-    if (!hashA[char]) {
-      hashA[char] = 1;
-    } else {
-      hashA[char] += 1;
-    }
-  });
-  stringB.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
-    if (!hashA[char]) {
-      hashA[char] = 123123;
-    } else {
-      hashA[char] -= 1;
-    }
-  });
-  const sum = Object.values(hashA).reduce((total, currentValue) => {
-    return total + currentValue;
-  });
-  return sum === 0;
+  return cleanString(stringA) === cleanString(stringB);
 }
-// my second attempt working solution 
+
+function cleanString(str) {
+  return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+}
+// my second attempt working solution
 // function anagrams(stringA, stringB) {
 //   const hashA = {};
 //   stringA.replace(/[^\w]/g, "").toLowerCase().split("").forEach(char => {
