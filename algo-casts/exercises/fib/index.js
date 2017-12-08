@@ -8,6 +8,32 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  }
+  const result = [0, 1];
+  for (let i = 1; i < n; i++) {
+    result.push(result[result.length - 2] + result[result.length - 1]);
+  }
+  return result[result.length - 1];
+}
 
 module.exports = fib;
+
+
+// my initial iterative solution
+// function fib(n) {
+//   if (n === 0) {
+//     return 0;
+//   } else if (n === 1) {
+//     return 1;
+//   }
+//   const result = [0, 1];
+//   for (let i = 1; i < n; i++) {
+//     result.push(result[result.length - 2] + result[result.length - 1]);
+//   }
+//   return result[result.length - 1];
+// }
