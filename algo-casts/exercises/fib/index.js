@@ -9,16 +9,11 @@
 //   fib(4) === 3
 
 function fib(n) {
-  if (n === 0) {
-    return 0;
-  } else if (n === 1) {
-    return 1;
+  if (n < 2) {
+    return n;
   }
-  const result = [0, 1];
-  for (let i = 1; i < n; i++) {
-    result.push(result[result.length - 2] + result[result.length - 1]);
-  }
-  return result[result.length - 1];
+
+  return fib(n - 1) + fib(n - 2);
 }
 
 module.exports = fib;
