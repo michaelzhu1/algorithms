@@ -10,6 +10,28 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+class Stack {
+  constructor() {
+    this.store = [];
+  }
+
+  push(record) {
+    this.store.unshift(record);
+  }
+
+  pop() {
+    if (this.store.length <= 0) {
+      return "Stack is empty!";
+    } else  {
+      return this.store.shift();
+    }
+  }
+
+  peek() {
+    if (this.store.length > 0) {
+      return this.store[0];
+    }
+  }
+}
 
 module.exports = Stack;
