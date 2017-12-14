@@ -88,6 +88,9 @@ class LinkedList {
   }
 
   getAt(index) {
+    if (!this.head) {
+      return null;
+    }
     if (index >= this.size()) {
       return null;
     }
@@ -117,6 +120,25 @@ class LinkedList {
       index--;
     }
     prevNode.next = currNode.next;
+  }
+
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    if (index === 0) {
+      const nextNode = this.head;
+      this.head = new Node(data, nextNode);
+      return;
+    }
+    if (index >= this.size()) {
+      this.getLast().next = new Node(data);
+      return;
+    }
+    const prevNode = this.getAt(index - 1);
+    const afterNode = this.getAt(index);
+    prevNode.next = new Node(data, afterNode);
   }
 
 }
