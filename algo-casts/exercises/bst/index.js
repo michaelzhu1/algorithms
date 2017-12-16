@@ -17,6 +17,22 @@ class Node {
     this.left = null;
     this.right = null;
   }
+
+  insert(data) {
+    if (data < this.data) {
+      if (this.left) {
+        return this.left.insert(data);
+      } else {
+        this.left = new Node(data);
+      }
+    } else if (data > this.data) {
+      if (this.right) {
+        return this.right.insert(data);
+      } else {
+        this.right = new Node(data);
+      }
+    }
+  }
 }
 
 module.exports = Node;
