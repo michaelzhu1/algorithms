@@ -152,6 +152,8 @@ class LinkedList {
       currNode = currNode.next;
     }
   }
+
+  
 }
 
 module.exports = { Node, LinkedList };
