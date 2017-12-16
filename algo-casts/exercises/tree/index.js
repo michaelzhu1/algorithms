@@ -33,9 +33,13 @@ class Tree {
   }
 
   traverseBF(fn) {
-    const queue = [this.root];
+    let queue = [this.root];
     while (queue.length > 0) {
-      queue.concat(queue[0].children);
+      fn(queue[0]);
+      if (queue[0].children) {
+        queue = queue.concat(queue[0].children);
+      }
+      queue.shift();
     }
   }
 }
