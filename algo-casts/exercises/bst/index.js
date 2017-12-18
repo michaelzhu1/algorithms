@@ -21,7 +21,7 @@ class Node {
   insert(data) {
     if (data < this.data) {
       if (this.left) {
-        return this.left.insert(data); //called insert with this instead of this.left 
+        return this.left.insert(data); //called insert with this instead of this.left
       } else {
         this.left = new Node(data); // forgot to initialize a new node
       }
@@ -33,6 +33,25 @@ class Node {
       }
     }
   }
+
+  // return the Node witht he same value in the tree
+  contains(data) {
+    if (data === this.data) {
+      return this;
+    } else if (data < this.data){
+      if (this.left === null) {
+        return null;
+      }
+      return this.left.contains(data);
+    } else {
+      if (this.right === null) {
+        return null;
+      }
+      return this.right.contains(data);
+    }
+  }
+
+
 }
 
 module.exports = Node;
