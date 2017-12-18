@@ -21,9 +21,9 @@ class Node {
   insert(data) {
     if (data < this.data) {
       if (this.left) {
-        return this.left.insert(data);
+        return this.left.insert(data); //called insert with this instead of this.left 
       } else {
-        this.left = new Node(data);
+        this.left = new Node(data); // forgot to initialize a new node
       }
     } else if (data > this.data) {
       if (this.right) {
