@@ -7,9 +7,7 @@
 
 // initial attempt solution, may not be optimized
 function validate(node, min = null, max = null) {
-  if (max && node.data > max) {
-    return false;
-  } else if (min && node.data < min) {
+  if ((max && node.data > max) || (min && node.data < min)) {
     return false;
   }
   if (node.left) {
