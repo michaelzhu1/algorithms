@@ -18,11 +18,19 @@ class Events {
 
   // Trigger all callbacks associated
   // with a given eventName
-  trigger(eventName) {}
+  trigger(eventName) {
+    if (this.events[eventName]) {
+      this.events[eventName].forEach(cb => {
+        cb();
+      });
+    }
+  }
 
   // Remove all event handlers associated
   // with the given eventName
-  off(eventName) {}
+  off(eventName) {
+    delete this.events[eventName];
+  }
 }
 
 module.exports = Events;
