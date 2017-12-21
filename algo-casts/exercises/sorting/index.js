@@ -54,7 +54,17 @@ function mergeSort(arr) {
 }
 
 function merge(left, right) {
-
+  const result = [];
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] > right[0]) {
+      result.push(right.shift());
+    } else {
+      result.push(left.shift());
+    }
+  }
+  result.push(...left);
+  result.push(...right);
+  return result;
 }
 
-module.exports = { bubbleSort, selectionSort, mergeSort };
+module.exports = { bubbleSort, selectionSort, mergeSort, merge };
