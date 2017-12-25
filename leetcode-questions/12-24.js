@@ -171,3 +171,37 @@ var searchInsert = function(nums, target) {
     }
     return nums.length;
 };
+
+// 19. Remove Nth Node From End of List
+// Given a linked list, remove the nth node from the end of list and return its head.
+//
+// For example,
+//
+//    Given linked list: 1->2->3->4->5, and n = 2.
+//
+//    After removing the second node from the end, the linked list becomes 1->2->3->5.
+
+
+var removeNthFromEnd = function(head, n) {
+    let dummyHead = new ListNode(-1);
+    dummyHead.next = head;
+    let fast = dummyHead;
+    if (!head.next) {
+        return [];
+    }
+    while (n > 0 && fast.next) {
+        fast = fast.next;
+        n--;
+    }
+    let slow = dummyHead;
+    while (fast.next) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    if (slow.next.next) {
+        slow.next = slow.next.next;
+    } else {
+        slow.next = null;
+    }
+    return dummyHead.next;
+};
