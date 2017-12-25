@@ -115,3 +115,28 @@ var lengthOfLastWord = function(s) {
     }
     return 0;
 };
+
+// 53. Maximum Subarray
+// Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+//
+// For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+// the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+var maxSubArray = function(nums) {
+    let maxSum = nums[0];
+    let tempMax;
+    for (let i = 0; i < nums.length; i++) {
+        if (i === 0) {
+            tempMax = nums[i];
+        } else {
+            tempMax = nums[i] + tempMax;
+        }
+        if (tempMax > maxSum) {
+            maxSum = tempMax;
+        }
+        if (tempMax <= 0) {
+            tempMax = 0;
+        }
+    }
+    return maxSum;
+};
