@@ -33,3 +33,37 @@ var intersect = function(nums1, nums2) {
 const nums1 = [4, 7, 9, 7, 6, 7];
 const nums2 = [5, 0, 0, 6, 1, 6, 2, 2, 4];
 intersect(nums1, nums2);
+
+// 3Sum
+// Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+var threeSum = function(nums) {
+    const sorted = nums.sort((a,b) => a-b);
+    const result = [];
+    for (let i = 0; i < (sorted.length-2); i++) {
+        if ((i === 0) || ((i > 0) && sorted[i] !== sorted[i-1])) {
+            let complement = 0 - sorted[i];
+            let low = i + 1;
+            let high = nums.length - 1;
+            while (low < high) {
+                let twoNumSum = sorted[low] + sorted[high];
+                if (twoNumSum < complement) {
+                    low++;
+                } else if (twoNumSum > complement) {
+                    high--;
+                } else if (twoNumSum === complement) {
+                    result.push([sorted[i], sorted[low], sorted[high]]);
+                    while ((low < high) && (sorted[low] === sorted[low+1])) {
+                        low++;
+                    }
+                    while ((low < high) && (sorted[high] === sorted[high-1])) {
+                        high--;
+                    }
+                    low++;
+                    high--;
+                }
+            }
+        }
+    }
+    return result;
+};
