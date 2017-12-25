@@ -96,3 +96,22 @@ var isValid = function(s) {
     }
     return stack.length === 0;
 };
+
+// 58. Length of Last Word
+// Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
+//
+// If the last word does not exist, return 0.
+
+var lengthOfLastWord = function(s) {
+    const arr = s.split(' ');
+    let length = arr.length - 1;
+    // wasted so much time because wrote '=>' instead of '>='. Watch out for syntax!
+    while (length >= 0) {
+        if (arr[length] === '') {
+            length--;
+        } else {
+            return arr[length].length;
+        }
+    }
+    return 0;
+};
