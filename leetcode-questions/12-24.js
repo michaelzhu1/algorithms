@@ -67,3 +67,32 @@ var threeSum = function(nums) {
     }
     return result;
 };
+
+// 20. Valid Parentheses
+// Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+//
+// The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+
+var isValid = function(s) {
+    if (!s) {
+        return true;
+    }
+
+    const stack = [];
+    const left = ['(', '{', '['];
+    const right = [')', '}', ']'];
+    const match = {'(' : ')', '{' : '}', '[' : ']'};
+
+    for (let i = 0; i < s.length; i++) {
+        if (left.includes(s[i])) {
+            stack.push(s[i]);
+        }
+        if (right.includes(s[i])) {
+            const stackStr = stack.pop();
+            if (match[stackStr] !== s[i]) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+};
