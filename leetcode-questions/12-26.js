@@ -146,3 +146,50 @@ var isSameTree = function(p, q) {
     // recursively call the rest of the tree node children simultaneously
     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 };
+
+
+// 226. Invert Binary Tree
+// Invert a binary tree.
+//      4
+//    /   \
+//   2     7
+//  / \   / \
+// 1   3 6   9
+// to
+//      4
+//    /   \
+//   7     2
+//  / \   / \
+// 9   6 3   1
+
+// Recursive solution
+var invertTree = function(root) {
+    if (root === null) {
+        return root;
+    }
+    const left = invertTree(root.left);
+    const right = invertTree(root.right);
+    root.left = right;
+    root.right = left;
+    return root;
+};
+// Iterative solution using Breadth first search algorithm to switch left and right child and then push them in the queue and then eventually returns the root.
+var invertTree = function(root) {
+    if (root === null) {
+        return root;
+    }
+    const queue = [root];
+    while (queue.length > 0) {
+        const curr = queue.shift();
+        const temp = curr.left;
+        curr.left = curr.right;
+        curr.right = temp;
+        if (curr.left !== null) {
+            queue.push(curr.left);
+        }
+        if (curr.right !== null) {
+            queue.push(curr.right);
+        }
+    }
+    return root;
+};
