@@ -125,3 +125,24 @@ var merge = function(nums1, m, nums2, n) {
     }
     nums1.sort((a,b) => a-b);
 };
+
+// 100. Same Tree
+// Given two binary trees, write a function to check if they are the same or not.
+//
+// Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+var isSameTree = function(p, q) {
+    // recursion reaches the end and all nodes passed false if loop
+    if (p === null && q === null) {
+        return true;
+    }
+    // returns false if only one of the tree node is null that means the trees are not the same
+    if (p === null || q === null) {
+        return false;
+    }
+    // returns false obviously when the value are different in two tree nodes
+    if (p.val !== q.val) {
+        return false;
+    }
+    // recursively call the rest of the tree node children simultaneously
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+};
