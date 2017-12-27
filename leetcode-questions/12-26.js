@@ -36,6 +36,7 @@
 
 
 // 206. Reverse Linked List
+// Use two pointer method as well. Use a tempNext variable to store the next of current node after changing curr's next pointer to prev and then update prev to curr, and then update curr to the tempNext varable we orginally stored
 var reverseList = function(head) {
     let prev = null;
     let curr = head;
@@ -47,3 +48,20 @@ var reverseList = function(head) {
     }
     return prev;
 };
+
+
+// 234. Palindrome Linked List
+// Given a singly linked list, determine if it is a palindrome.
+var isPalindrome = function(head) {
+    let original = "";
+    let reverse = "";
+    while (head !== null) {
+        original = original + head.val.toString();
+        reverse = head.val.toString() + reverse;
+        head = head.next;
+    }
+
+    return original == reverse;
+};
+
+// The trick is to convert the linked list to strings and then compare if the reverse of that string is the same as the original string.
