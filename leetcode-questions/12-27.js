@@ -26,4 +26,47 @@ var isHappy = function(n) {
     return n === 1;
 };
 
-// used an object to store all the numbers that appeared to check if it's going in an infinite loop 
+// used an object to store all the numbers that appeared to check if it's going in an infinite loop
+
+
+// 258. Add Digits
+// Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+//
+// For example:
+//
+// Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+
+var addDigits = function(num) {
+    if (num.toString().length === 1) {
+        return num;
+    } else {
+        const newNum = num.toString().split('').reduce((prev, curr) => {
+            return Number(prev) + Number(curr);
+        }, 0)
+        return addDigits(newNum);
+    }
+};
+
+//
+// 209. Minimum Size Subarray Sum
+// Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
+
+// For example, given the array [2,3,1,2,4,3] and s = 7,
+// the subarray [4,3] has the minimal length under the problem constraint.
+
+var minSubArrayLen = function(s, nums) {
+    let left = 0;
+    let ans = Number.MAX_SAFE_INTEGER;
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+        while (sum >= s) {
+            ans = Math.min(ans, (i + 1 - left));
+            sum -= nums[left];
+            left++;
+        }
+    }
+    return ans !== Number.MAX_SAFE_INTEGER ? ans : 0;
+};
+
+//  Used a left pointer to keep track the left most index while keep shrinking the length to see if the sum is still more than s. Used a ans variable to keep track the minimum length, and preset it to Number.MAX_SAFE_INTEGER
