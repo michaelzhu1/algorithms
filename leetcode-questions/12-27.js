@@ -89,16 +89,45 @@ var maxDepth = function(root) {
 // The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
 var minDepth = function(root) {
+    // Edge case in case root is null, should never reach this on normal cases
     if (root === null) {
         return 0;
     }
+    // if the node the leaf node and has no children, then should just return 1 for itself
     if (root.left === null && root.right === null) {
         return 1;
+    // if the node has only right child, then recursively call the right child while adding 1
     } else if (root.left === null) {
         return minDepth(root.right) + 1;
+    // if the node has only left child, then recursively call the left child while adding 1
     } else if (root.right === null) {
         return minDepth(root.left) + 1;
+    // if the node has both children, then call both childs and return the minimum of both and then add 1 onto it
     } else {
         return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
     }
 };
+
+// 110. Balanced Binary Tree
+// Given a binary tree, determine if it is height-balanced.
+//
+// For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+
+var isBalanced = function(root) {
+    if (root === null) {
+        return true;
+    }
+    const left = maxDepth(root.left);
+    const right = maxDepth(root.right);
+    const diff = Math.abs(left - right);
+    // then make sure to only call isBalanced recursively if the current difference between left and right routes is less than 1;
+    return diff <= 1 && isBalanced(root.left) && isBalanced(root.right);
+};
+// Used maxDepth/Depth helper to get the height of both left and right
+function maxDepth(node) {
+    if (node === null) {
+        return 0;
+    }
+    return Math.max(maxDepth(node.left), maxDepth(node.right)) + 1;
+}
+// This problem used two recursion call: One to get the depth of each child and two to check the current child is self-balanced too
