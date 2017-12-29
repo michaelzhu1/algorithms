@@ -120,7 +120,7 @@ var isBalanced = function(root) {
     const left = maxDepth(root.left);
     const right = maxDepth(root.right);
     const diff = Math.abs(left - right);
-    // then make sure to only call isBalanced recursively if the current difference between left and right routes is less than 1;
+    // then make sure to only call isBalanced recursively if the current difference between left and right routes is less than 1; It will return false if diff is not <= 1 first before excuting the rest of the return call
     return diff <= 1 && isBalanced(root.left) && isBalanced(root.right);
 };
 // Used maxDepth/Depth helper to get the height of both left and right
