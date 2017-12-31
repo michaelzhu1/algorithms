@@ -58,3 +58,38 @@ var addBinary = function(a, b) {
     }
     return result.reverse().join('');
 };
+
+// 118. Pascal's Triangle
+//
+// Given numRows, generate the first numRows of Pascal's triangle.
+//
+// For example, given numRows = 5,
+// Return
+//
+// [
+//      [1],
+//     [1,1],
+//    [1,2,1],
+//   [1,3,3,1],
+//  [1,4,6,4,1]
+// ]
+
+var generate = function(numRows) {
+    if (numRows === 0) {
+        return [];
+    }
+    const result = [[1]];
+    while (result.length < numRows) {
+        const subArr = [];
+        const prevArr = result[result.length - 1];
+        const temp = prevArr.slice(0);
+        temp.unshift(0);
+        temp.push(0);
+        for (let i = 0; i < (temp.length - 1); i++) {
+            subArr.push(temp[i] + temp[i + 1]);
+        }
+        result.push(subArr);
+    }
+    return result;
+};
+// Iterative solution
