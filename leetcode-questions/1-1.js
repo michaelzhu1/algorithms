@@ -64,3 +64,20 @@ var majorityElement = function(nums) {
 };
 
 // Used hash to store the counts and then filter out the one with count more than n/2
+
+var majorityElement = function(nums) {
+    let majority = nums[0];
+    let count = 1;
+    for (let i = 1; i < nums.length; i++) {
+        if (count === 0) {
+            majority = nums[i];
+            count++;
+        } else if (majority === nums[i]) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    return majority;
+  };
+  // majority voting algorithm O(1) space and O(n) runtime;
