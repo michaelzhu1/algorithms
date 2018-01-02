@@ -47,3 +47,5 @@ FROM Employee AS a
 JOIN Employee AS b
 ON a.ManagerId = b.id
 WHERE a.Salary > b.Salary
+
+// self-join table and filter out the employee with salary higher than their managers
