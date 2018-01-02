@@ -80,4 +80,32 @@ var majorityElement = function(nums) {
     }
     return majority;
   };
-  // majority voting algorithm O(1) space and O(n) runtime;
+  // Boyer-Moore Majority Vote algorithm O(1) space and O(n) runtime;
+
+// 160. Intersection of Two Linked Lists
+// Write a program to find the node at which the intersection of two singly linked lists begins.
+//
+//
+// For example, the following two linked lists:
+//
+// A:          a1 → a2
+//                    ↘
+//                      c1 → c2 → c3
+//                    ↗
+// B:     b1 → b2 → b3
+// begin to intersect at node c1.
+
+var getIntersectionNode = function(headA, headB) {
+    const store = {};
+    while (headA) {
+        store[headA.val] = true;
+        headA = headA.next;
+    }
+    while (headB) {
+        if (store[headB.val]) {
+            return headB;
+        }
+        headB = headB.next;
+    }
+    return null;
+};
