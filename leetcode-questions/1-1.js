@@ -40,3 +40,27 @@ var climbStairs = function(n) {
     store[n] = result;
     return result;
 };
+// the same as fibinacci problem
+
+// 169. Majority Element
+// Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+//
+// You may assume that the array is non-empty and the majority element always exist in the array.
+
+var majorityElement = function(nums) {
+    const threshold = Math.floor(nums.length/2);
+    const counter = {};
+    for (let i = 0; i < nums.length; i++) {
+        if (!counter[nums[i]]) {
+            counter[nums[i]] = 1;
+        } else {
+            counter[nums[i]]++;
+        }
+    }
+    const result = Object.keys(counter).filter(key => {
+        return counter[key] > threshold;
+    });
+    return parseInt(result[0]);
+};
+
+// Used hash to store the counts and then filter out the one with count more than n/2
