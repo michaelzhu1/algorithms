@@ -46,3 +46,33 @@ var countAndSay = function(n) {
 };
 
 // O(n^2) run time
+
+
+// 345. Reverse Vowels of a String
+// Write a function that takes a string as input and reverse only the vowels of a string.
+//
+// Example 1:
+// Given s = "hello", return "holle".
+//
+// Example 2:
+// Given s = "leetcode", return "leotcede".
+//
+// Note:
+// The vowels does not include the letter "y".
+
+var reverseVowels = function(s) {
+    const arr = s.split('');
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    const vowelsInLetter = [];
+    for (let i = 0; i < s.length; i++) {
+        if (vowels.includes(arr[i])) {
+            vowelsInLetter.push(arr[i]);
+        }
+    }
+    for (let i = 0; i < s.length; i++) {
+        if (vowels.includes(arr[i])) {
+            arr[i] = vowelsInLetter.pop();
+        }
+    }
+    return arr.join('');
+};
