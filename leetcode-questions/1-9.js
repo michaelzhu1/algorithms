@@ -20,3 +20,21 @@ var twoSum = function(numbers, target) {
     }
     return false;
 };
+
+var twoSum = function(numbers, target) {
+    let left = 0;
+    let right = numbers.length - 1;
+    let sum;
+    while (left < right) {
+        sum = numbers[left] + numbers[right];
+        if (sum === target) {
+            return [left + 1, right + 1];
+        } else if (sum < target) {
+            left++;
+        } else if (sum > target) {
+            right--;
+        }
+    }
+    return false;
+};
+// faster implementation of O(n) time instead of O(n^2)
